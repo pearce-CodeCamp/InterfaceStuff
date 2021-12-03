@@ -15,6 +15,7 @@ namespace InterfaceStuff
             Prompt = prompt;
         }
 
+        // this is an instance method of this class
         public void PrintPrompt()
         {
             Console.WriteLine(Prompt);
