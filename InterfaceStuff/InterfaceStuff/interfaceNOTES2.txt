@@ -1,0 +1,40 @@
+Now that we have distiguished a method signature from a method implementation,
+let's take a look how we might use an interface in an already created inheritance
+tree in C#.
+
+public abstract class Question
+Fields:
+public string CorrectAnswer
+public string Prompt
+
+All instances of the Question will have a correct answer and prompt.
+But, I have this class abstract. That means we aren't going to create instances
+of this Question class, but rather build child classes that inherit the Question class.
+We choose to use an abstract class to define these fields because we want the
+child classes of Question to be able to call the Question's constructor.
+
+IGradeable is an interface that contains a method signature for gradeQuestion.
+public bool gradeQuestion() { }
+Returns true if the question is correct and false if incorrect.
+
+public class CheckBoxes : Question, IGradeable
+This class inherits the 2 fields from Question, but it also requires a 
+gradeQuestion method that checks to see if all provided answers by the user
+match up with all the correct answers.
+
+public class TrueFalse : Question, IGradeable
+All this class does is inherit the 2 fields from the Question class.
+Needs to have a gradeQuestion method that determines if the provided 
+answer matches the correct answer.
+
+public class ShortAnswer : Question
+This class also just inherits the 2 fields from Question.
+Maybe the ShortAnswer class doesn't need a gradeQuestion method because it will
+left up to an admin to go in and determine if the answer is correct.
+
+Right now these classes are no different. 
+We grade these questions completely differently. Since a TrueFalse question only has
+exactly 2 possible answers, we leave it up to our program to determine if the user
+gave the correct answer. A ShortAnswer question has a virtually infinite possible
+answers, and so we would leave it up to some TA or admin to grade the question. Our code
+is unable to determine if the question is correct or not.

@@ -1,0 +1,30 @@
+Interfaces are like abstract classes in the sense we don't create instances of interfaces.
+We can treat sort of like a contract. So if a class implements an interface, it must include
+implementations for any methods that are defined in the interface.
+Interfaces can also include implementations of methods and constant variables, but we will focus
+today on just this that methods will defined in the interface and implemented in the classes.
+
+Defining a method vs implementing a method
+For a variable, it is defining vs initializing
+
+Defining a variable is just essentially stating its type and name:
+Example: string name;
+Here we have defined the name string, but it has no value yet.
+
+Initializing a variable, we define a variable and give it a value. 
+Example: string name = "Pearce";
+Here we defined name and assigned a value of "Pearce"!
+
+Defining method: public void PrintString(string str) {}
+This is called a method signature. 
+A method signature contains everything except the actual method body, or what the method actually does.
+We know the method is public, we know it will return nothing, we know it takes a string as input.
+What we don't exactly know is what code is actually run when we invoke this method.
+
+Implementing the PrintString method would look more like this:
+public void PrintString(string str) {
+   Console.WriteLine(str);
+}
+
+If we were to include the PrintString method signature in an interface, then any class that implements
+that interface must have an implementation for the PrintString method.
